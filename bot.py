@@ -123,7 +123,7 @@ def schedule_quiz():
 
 
 # === 9. STARTUP ===
-send_daily_quiz()  # immediate quiz on startup
 schedule_quiz()    # schedule daily at 8 AM
 print("🤖 Bot is running...")
 bot.infinity_polling()
+
