@@ -127,3 +127,4 @@ schedule_quiz()    # schedule daily at 8 AM
 print("🤖 Bot is running...")
 bot.infinity_polling()
 
+
