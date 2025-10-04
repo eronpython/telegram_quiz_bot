@@ -1,0 +1,57 @@
+[
+  {
+    "question": "The space between the fissure of the ligamentum venosum and the inferior vena cava (IVC) defines which liver segment according to Couinaud terminology?",
+    "options": [
+      "A. Segment 7",
+      "B. Segment 4a",
+      "C. Segment 1",
+      "D. Segment 8"
+    ],
+    "correct_option_id": 2,
+    "rationale": "Segment 1 (Caudate lobe) extends between the fissure of the ligamentum venosum and the inferior vena cava (IVC)."
+  },
+  {
+    "question": "What is the typical attenuation value range (in Hounsfield units, H) for simple serous ascites on CT examination?",
+    "options": [
+      "A. +60 H to +80 H",
+      "B. -10 H to +10 H",
+      "C. +20 H to +45 H",
+      "D. -50 H to 0 H"
+    ],
+    "correct_option_id": 1,
+    "rationale": "Serous ascites has attenuation values near water, typically ranging from -10 H to +10 H."
+  },
+  {
+    "question": "Free air in the peritoneal cavity, known as pneumoperitoneum, is considered a valuable sign of what underlying acute process?",
+    "options": [
+      "A. Hepatic venous occlusion",
+      "B. Bowel perforation",
+      "C. Urinary tract obstruction",
+      "D. Retroperitoneal hemorrhage"
+    ],
+    "correct_option_id": 1,
+    "rationale": "Free air within the peritoneal cavity (pneumoperitoneum) is a valuable sign of bowel perforation."
+  },
+  {
+    "question": "On conventional radiography, which imaging technique is considered the most sensitive for detecting free air in the peritoneal cavity?",
+    "options": [
+      "A. Supine abdominal radiograph",
+      "B. Decubitus view with the patient lying on the left side",
+      "C. Upright chest or upright abdominal radiograph",
+      "D. Prone abdominal view"
+    ],
+    "correct_option_id": 2,
+    "rationale": "Conventional radiographs show pneumoperitoneum best on upright images obtained with the patient standing or sitting, with small amounts of air clearly demonstrated beneath the domes of the diaphragm."
+  },
+  {
+    "question": "The most common cause of calcified lymph nodes is associated with which group of diseases?",
+    "options": [
+      "A. Metastatic carcinoma (e.g., ovarian, colon)",
+      "B. Vascular aneurysms",
+      "C. Granulomatous diseases (e.g., tuberculosis, histoplasmosis)",
+      "D. Chronic inflammatory bowel disease"
+    ],
+    "correct_option_id": 2,
+    "rationale": "Calcified lymph nodes result most commonly from granulomatous diseases such as tuberculosis or histoplasmosis."
+  }
+]
