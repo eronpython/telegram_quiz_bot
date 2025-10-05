@@ -1,14 +1,13 @@
-import os
 import json
 import random
-from flask import Flask, request
 import telebot
+from flask import Flask, request
 
-# === 1. Telegram bot token ===
+# === 1. BOT TOKEN ===
 TOKEN = "8359356550:AAFgGm9wxkWddOtBHdj-b44Vd0EjxHSkAG8"
 bot = telebot.TeleBot(TOKEN)
 
-# === 2. Load questions and scores ===
+# === 2. LOAD QUESTIONS AND SCORES ===
 with open("questions.json", "r", encoding="utf-8") as f:
     questions = json.load(f)
 
@@ -18,14 +17,14 @@ try:
 except FileNotFoundError:
     scores = {}
 
-# === 3. Save scores function ===
+used_questions = []
+
+# === 3. SAVE SCORES ===
 def save_scores():
     with open("scores.json", "w", encoding="utf-8") as f:
         json.dump(scores, f, indent=4)
 
-# === 4. Pick a random question ===
-used_questions = []
-
+# === 4. RANDOM QUESTION (NO REPEAT UNTIL ALL USED) ===
 def get_random_question():
     global used_questions
     remaining = [q for q in questions if q["question"] not in used_questions]
@@ -36,40 +35,37 @@ def get_random_question():
     used_questions.append(q["question"])
     return q
 
-# === 5. Send quiz function ===
-CHAT_ID = 1108084497  # e.g., 1108084497
-
-def send_quiz():
+# === 5. SEND QUIZ ===
+def send_daily_quiz():
     q = get_random_question()
     question = q["question"]
     options = q["options"]
     correct_option_id = q["correct_option_id"]
-    rationale = q["rationale"]
+    rationale = q.get("rationale", "")
 
-    # Send quiz as a Telegram poll
     bot.send_poll(
-        chat_id=CHAT_ID,
+        chat_id=1108084497,  # ← replace with your chat/group ID
         question=question,
         options=options,
         type="quiz",
         correct_option_id=correct_option_id,
         is_anonymous=False
     )
-    return f"Quiz sent: {question}"
 
-# === 6. Flask server ===
+    print(f"✅ Sent quiz: {question}")
+    return f"✅ Sent quiz: {question}"
+
+# === 6. Flask app for webhook ===
 app = Flask(__name__)
 
-@app.route("/", methods=["GET"])
+@app.route("/")
 def index():
     return "Bot is running!"
 
-# Endpoint Make.com can call
 @app.route("/send_quiz", methods=["POST"])
 def trigger_quiz():
-    result = send_quiz()
-    return result, 200
+    return send_daily_quiz(), 200
 
+# === 7. Run Flask ===
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=5000)
